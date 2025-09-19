@@ -55,6 +55,14 @@
         "info": ""
     },
     {
+        "id": "575e421123522e45",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f3b20fd514f58146",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -2864,6 +2872,64 @@
         "info": "This is an example flow created by Mac and Huche.\nThis flow runs once every second because of the Inject \"timestamp\" node.\nThe timestamp is fed to the debug node and outputted in milliseconds since 1/1/1970.\nClick the debug tab to view these debug messages.\nThe function node is simple javascript to retrieve the time and date in a specific format.\nThis formatted date is given to the text dashboard node.\nTo view this dashboard, click the dashboard tab or go to\nhttp://localhost:1880/ui",
         "x": 190,
         "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f0abc581b9d87513",
+        "type": "inject",
+        "z": "575e421123522e45",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "d9c710de7d0c7aeb"
+            ]
+        ]
+    },
+    {
+        "id": "d9c710de7d0c7aeb",
+        "type": "random",
+        "z": "575e421123522e45",
+        "name": "",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "541156e360933953"
+            ]
+        ]
+    },
+    {
+        "id": "541156e360933953",
+        "type": "debug",
+        "z": "575e421123522e45",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 220,
         "wires": []
     }
 ]
