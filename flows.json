@@ -63,6 +63,14 @@
         "env": []
     },
     {
+        "id": "f5a9f7ab078830f8",
+        "type": "tab",
+        "label": "Tarea de Dashboard con Cliente-servidor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f3b20fd514f58146",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -132,7 +140,7 @@
                 "cols": "12"
             }
         ],
-        "order": 1,
+        "order": 2,
         "className": "",
         "visible": true,
         "disabled": false
@@ -224,7 +232,7 @@
                 "cols": "12"
             }
         ],
-        "order": 2,
+        "order": 3,
         "className": "",
         "visible": "true",
         "disabled": false
@@ -274,7 +282,7 @@
                 "cols": "12"
             }
         ],
-        "order": 3,
+        "order": 4,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -502,6 +510,56 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "38477e3084e17dc7",
+        "type": "ui-page",
+        "name": "Dashboard 4",
+        "ui": "f3b20fd514f58146",
+        "path": "/page5",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "f1ee9d1877a3f72b",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "d5239c7d90c8bae6",
+        "type": "ui-group",
+        "name": "Grupo Sensores",
+        "page": "38477e3084e17dc7",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "a5267a9dbcf523e1",
@@ -3114,6 +3172,213 @@
         "wires": [
             [
                 "46317e8df62dd390"
+            ]
+        ]
+    },
+    {
+        "id": "e029bd48fc928705",
+        "type": "ui-gauge",
+        "z": "f5a9f7ab078830f8",
+        "name": "temperatura",
+        "group": "d5239c7d90c8bae6",
+        "order": 2,
+        "value": "payload.temp",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "ºC",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "25",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e8448b0fd85c657",
+        "type": "ui-gauge",
+        "z": "f5a9f7ab078830f8",
+        "name": "humedad",
+        "group": "d5239c7d90c8bae6",
+        "order": 3,
+        "value": "payload.hume",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 580,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ac4d9a59f916acd",
+        "type": "mqtt in",
+        "z": "f5a9f7ab078830f8",
+        "name": "",
+        "topic": "Utmach/FIC/IoT/6A/Kevin",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "3e509ca313ba0ee0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "e029bd48fc928705",
+                "3e8448b0fd85c657",
+                "206466abf746b0c6",
+                "227b285e2906073d"
+            ]
+        ]
+    },
+    {
+        "id": "c39933f06af01694",
+        "type": "ui-led",
+        "z": "f5a9f7ab078830f8",
+        "name": "estado",
+        "group": "d5239c7d90c8bae6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "off",
+                "valueType": "str",
+                "color": "#ff0000"
+            },
+            {
+                "value": "on",
+                "valueType": "str",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 570,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "206466abf746b0c6",
+        "type": "debug",
+        "z": "f5a9f7ab078830f8",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "227b285e2906073d",
+        "type": "change",
+        "z": "f5a9f7ab078830f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.estado",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "c39933f06af01694"
             ]
         ]
     }
