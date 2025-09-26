@@ -55,7 +55,7 @@
         "info": ""
     },
     {
-        "id": "575e421123522e45",
+        "id": "8f3d28f4f6d78b3d",
         "type": "tab",
         "label": "Flujo 1",
         "disabled": false,
@@ -440,6 +440,68 @@
         "disp": true,
         "width": "8",
         "collapse": false
+    },
+    {
+        "id": "3e509ca313ba0ee0",
+        "type": "mqtt-broker",
+        "name": "MQTT",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "41e4658a96a01ae0",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "a5267a9dbcf523e1",
@@ -2875,61 +2937,184 @@
         "wires": []
     },
     {
-        "id": "f0abc581b9d87513",
-        "type": "inject",
-        "z": "575e421123522e45",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "5",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 160,
+        "id": "a963ee45fa96fbc0",
+        "type": "mqtt in",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "hivemq.com",
+        "topic": "Utmach/FIC/IoT/6A/Kevin",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3e509ca313ba0ee0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 120,
         "wires": [
             [
-                "d9c710de7d0c7aeb"
+                "4cd672c0f3cd6748"
             ]
         ]
     },
     {
-        "id": "d9c710de7d0c7aeb",
-        "type": "random",
-        "z": "575e421123522e45",
-        "name": "",
-        "low": 1,
-        "high": 10,
-        "inte": "true",
-        "property": "payload",
-        "x": 420,
-        "y": 180,
-        "wires": [
-            [
-                "541156e360933953"
-            ]
-        ]
-    },
-    {
-        "id": "541156e360933953",
+        "id": "4cd672c0f3cd6748",
         "type": "debug",
-        "z": "575e421123522e45",
+        "z": "8f3d28f4f6d78b3d",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ab3fbe9f7c923eec",
+        "type": "mqtt in",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "MosquitoLocal",
+        "topic": "Utmach/FIC/IoT/6A/Kevin",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "41e4658a96a01ae0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "48b05c8385c15212"
+            ]
+        ]
+    },
+    {
+        "id": "48b05c8385c15212",
+        "type": "debug",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 660,
         "y": 220,
         "wires": []
+    },
+    {
+        "id": "f706e496606032a0",
+        "type": "inject",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Utmach/FIC/IoT/6A/Kevin",
+        "payload": "{\"temp\":\"29.6\",\"hum\":\"88.7\",\"lat\":\"25.1\",\"long\":\"0.58\",\"nombre\":\"nodo_3\"}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "46317e8df62dd390"
+            ]
+        ]
+    },
+    {
+        "id": "46317e8df62dd390",
+        "type": "mqtt out",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3e509ca313ba0ee0",
+        "x": 590,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d544308aa64f4101",
+        "type": "inject",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "inject2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Utmach/FIC/IoT/6A/Kevin",
+        "payload": "{\"mensaje\":\"hola_mundo\"}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "46317e8df62dd390"
+            ]
+        ]
+    },
+    {
+        "id": "5ae3b73ecba91c81",
+        "type": "inject",
+        "z": "8f3d28f4f6d78b3d",
+        "name": "inject3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Utmach/FIC/IoT/6A/Kevin",
+        "payload": "{\"mensaje_topico3\":\"hola3\"}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "46317e8df62dd390"
+            ]
+        ]
     }
 ]
