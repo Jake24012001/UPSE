@@ -95,6 +95,14 @@
         "env": []
     },
     {
+        "id": "740d619a550c54e9",
+        "type": "tab",
+        "label": "App Clima 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f3b20fd514f58146",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -4455,73 +4463,10 @@
         ]
     },
     {
-        "id": "317d6194f30fbe16",
-        "type": "comment",
-        "z": "a4d6879ece10f3a4",
-        "name": "RETO",
-        "info": "",
-        "x": 450,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "f0d4922ef0304aac",
-        "type": "inject",
-        "z": "a4d6879ece10f3a4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 460,
-        "y": 720,
-        "wires": [
-            [
-                "0069cb4e9bb97d6d"
-            ]
-        ]
-    },
-    {
-        "id": "0069cb4e9bb97d6d",
-        "type": "http request",
-        "z": "a4d6879ece10f3a4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://api.weatherstack.com/current?access_key=146f7cd7c0394919414e7ab45606f584&query={{{ciudad}}}",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 690,
-        "y": 720,
-        "wires": [
-            [
-                "4ad3a7144eaba912"
-            ]
-        ]
-    },
-    {
-        "id": "24aa412c8ad012c5",
+        "id": "00cb9d06b7188d48",
         "type": "debug",
-        "z": "a4d6879ece10f3a4",
-        "name": "debug 12",
+        "z": "740d619a550c54e9",
+        "name": "salida",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -4530,97 +4475,232 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 680,
+        "x": 1510,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "4ad3a7144eaba912",
-        "type": "json",
-        "z": "a4d6879ece10f3a4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 950,
-        "y": 680,
+        "id": "dac53502c665fc46",
+        "type": "ui-text-input",
+        "z": "740d619a550c54e9",
+        "group": "c9dd3ee457a93d7e",
+        "name": "Ingreso Ciudad",
+        "label": "Ciudad",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 440,
+        "y": 300,
         "wires": [
             [
-                "24aa412c8ad012c5"
+                "9a0b860231b5fc58"
             ]
         ]
     },
     {
-        "id": "158677824d54ddb9",
+        "id": "1d385e38efc01c96",
+        "type": "http request",
+        "z": "740d619a550c54e9",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            [
+                "398c4df6c08de7c3"
+            ]
+        ]
+    },
+    {
+        "id": "9a0b860231b5fc58",
+        "type": "template",
+        "z": "740d619a550c54e9",
+        "name": "Contruir URL",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://api.weatherstack.com/current?access_key=146f7cd7c0394919414e7ab45606f584&query={{payload}}",
+        "output": "str",
+        "x": 630,
+        "y": 300,
+        "wires": [
+            [
+                "79d3141fa452b56a"
+            ]
+        ]
+    },
+    {
+        "id": "57113ffc59e8cb99",
         "type": "ui-gauge",
-        "z": "a4d6879ece10f3a4",
-        "name": "Temp",
+        "z": "740d619a550c54e9",
+        "name": "",
         "group": "c9dd3ee457a93d7e",
-        "order": 6,
+        "order": 3,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "ºC",
+        "title": "Temperatura",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
-        "units": "units",
+        "units": "ºC",
         "icon": "",
         "prefix": "",
         "suffix": "",
         "segments": [
             {
                 "from": "0",
-                "color": "#00d65c",
+                "color": "#5cd65c",
                 "text": "",
                 "textType": "label"
             },
             {
-                "from": "4",
+                "from": "20",
                 "color": "#ffc800",
                 "text": "",
                 "textType": "label"
             },
             {
-                "from": "7",
+                "from": "31",
                 "color": "#ea5353",
                 "text": "",
                 "textType": "label"
             }
         ],
         "min": 0,
-        "max": 10,
+        "max": "50",
         "sizeThickness": 16,
         "sizeGap": 4,
         "sizeKeyThickness": 8,
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1330,
-        "y": 840,
+        "x": 1550,
+        "y": 340,
         "wires": [
             []
         ]
     },
     {
-        "id": "239ebdc202c430cd",
+        "id": "79d3141fa452b56a",
+        "type": "change",
+        "z": "740d619a550c54e9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 300,
+        "wires": [
+            [
+                "1d385e38efc01c96"
+            ]
+        ]
+    },
+    {
+        "id": "c2891a1035978c11",
+        "type": "change",
+        "z": "740d619a550c54e9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current.temperature",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 340,
+        "wires": [
+            [
+                "57113ffc59e8cb99"
+            ]
+        ]
+    },
+    {
+        "id": "398c4df6c08de7c3",
+        "type": "json",
+        "z": "740d619a550c54e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1170,
+        "y": 300,
+        "wires": [
+            [
+                "c2891a1035978c11",
+                "00cb9d06b7188d48",
+                "e6120fa0b2e77950",
+                "5d04ea584ed1a3a1",
+                "a2f44133afa64f7b"
+            ]
+        ]
+    },
+    {
+        "id": "9f8c545a12c57e41",
         "type": "ui-gauge",
-        "z": "a4d6879ece10f3a4",
-        "name": "Hum",
+        "z": "740d619a550c54e9",
+        "name": "humedad",
         "group": "c9dd3ee457a93d7e",
-        "order": 5,
+        "order": 4,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "%",
+        "title": "Humedad",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
-        "units": "units",
+        "units": "%",
         "icon": "",
         "prefix": "",
         "suffix": "",
@@ -4652,43 +4732,99 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1330,
-        "y": 900,
+        "x": 1560,
+        "y": 400,
         "wires": [
             []
         ]
     },
     {
-        "id": "fa8da73ddd827383",
+        "id": "e6120fa0b2e77950",
+        "type": "change",
+        "z": "740d619a550c54e9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current.humidity",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 400,
+        "wires": [
+            [
+                "9f8c545a12c57e41"
+            ]
+        ]
+    },
+    {
+        "id": "1657d4a77f2dc0f9",
         "type": "ui-text",
-        "z": "a4d6879ece10f3a4",
+        "z": "740d619a550c54e9",
         "group": "c9dd3ee457a93d7e",
-        "order": 4,
+        "order": 2,
         "width": 0,
         "height": 0,
-        "name": "dir_viento",
-        "label": "text",
+        "name": "Viento",
+        "label": "direccion del viento",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "col-center",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
-        "x": 1340,
-        "y": 960,
+        "x": 1550,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "c28ce652c6cb46cd",
+        "id": "5d04ea584ed1a3a1",
+        "type": "change",
+        "z": "740d619a550c54e9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current.wind_dir",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 460,
+        "wires": [
+            [
+                "1657d4a77f2dc0f9"
+            ]
+        ]
+    },
+    {
+        "id": "b9bdef7bab6f7472",
         "type": "ui-led",
-        "z": "a4d6879ece10f3a4",
-        "name": "dia o noche",
+        "z": "740d619a550c54e9",
+        "name": "",
         "group": "c9dd3ee457a93d7e",
-        "order": 3,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "",
@@ -4696,93 +4832,48 @@
         "labelAlignment": "left",
         "states": [
             {
-                "value": "false",
-                "valueType": "bool",
+                "value": "no",
+                "valueType": "str",
                 "color": "#000000"
             },
             {
-                "value": "true",
-                "valueType": "bool",
-                "color": "#fff700"
+                "value": "yes",
+                "valueType": "str",
+                "color": "#e1ff00"
             }
         ],
         "allowColorForValueInMessage": false,
         "shape": "circle",
         "showBorder": true,
         "showGlow": true,
-        "x": 1350,
-        "y": 1020,
+        "x": 1550,
+        "y": 520,
         "wires": []
     },
     {
-        "id": "ecb73ad3de29e826",
-        "type": "ui-text-input",
-        "z": "a4d6879ece10f3a4",
-        "group": "c9dd3ee457a93d7e",
-        "name": "Cambiar Ciudad",
-        "label": "Ciudad",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "topic": "ciudad",
-        "topicType": "msg",
-        "mode": "text",
-        "tooltip": "",
-        "delay": 300,
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 700,
-        "y": 1020,
-        "wires": [
-            [
-                "0069cb4e9bb97d6d"
-            ]
-        ]
-    },
-    {
-        "id": "84bf1aa5cf64af52",
-        "type": "ui-button",
-        "z": "a4d6879ece10f3a4",
-        "group": "c9dd3ee457a93d7e",
+        "id": "a2f44133afa64f7b",
+        "type": "change",
+        "z": "740d619a550c54e9",
         "name": "",
-        "label": "Actualizar",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 500,
-        "y": 960,
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current.is_day",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 520,
         "wires": [
             [
-                "ecb73ad3de29e826"
+                "b9bdef7bab6f7472"
             ]
         ]
     }
