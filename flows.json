@@ -87,6 +87,14 @@
         "env": []
     },
     {
+        "id": "a4d6879ece10f3a4",
+        "type": "tab",
+        "label": "API Clima",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f3b20fd514f58146",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -156,7 +164,7 @@
                 "cols": "12"
             }
         ],
-        "order": 4,
+        "order": 5,
         "className": "",
         "visible": true,
         "disabled": false
@@ -248,7 +256,7 @@
                 "cols": "12"
             }
         ],
-        "order": 5,
+        "order": 7,
         "className": "",
         "visible": "true",
         "disabled": false
@@ -318,17 +326,10 @@
         "groupType": "default"
     },
     {
-        "id": "f779dd92.cf698",
-        "type": "ui_tab",
-        "name": "Charts",
-        "icon": "dashboard",
-        "order": 2
-    },
-    {
         "id": "44d9222c.07961c",
         "type": "ui_group",
         "name": "Charts",
-        "tab": "f779dd92.cf698",
+        "tab": "",
         "order": 2,
         "disp": false,
         "width": "6"
@@ -337,7 +338,7 @@
         "id": "afe97566.fbda58",
         "type": "ui_group",
         "name": "Inputs",
-        "tab": "f779dd92.cf698",
+        "tab": "",
         "order": 1,
         "disp": false,
         "width": "6"
@@ -346,7 +347,7 @@
         "id": "ef33233b.dd28f",
         "type": "ui_group",
         "name": "Group 3",
-        "tab": "f779dd92.cf698",
+        "tab": "",
         "order": 3,
         "disp": false,
         "width": "6"
@@ -360,7 +361,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -448,18 +450,10 @@
         }
     },
     {
-        "id": "72415252.b2cadc",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "3ba37fd4.6558f",
         "type": "ui_group",
         "name": "Example Flow",
-        "tab": "72415252.b2cadc",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "8",
@@ -558,7 +552,7 @@
                 "cols": "12"
             }
         ],
-        "order": 3,
+        "order": 4,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -608,7 +602,7 @@
                 "cols": "12"
             }
         ],
-        "order": 2,
+        "order": 3,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -658,7 +652,7 @@
                 "cols": "12"
             }
         ],
-        "order": 1,
+        "order": 2,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -668,6 +662,66 @@
         "type": "ui-group",
         "name": "Grupo Reto",
         "page": "7dd48a74cb914827",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "dashboard",
+        "type": "ui_group",
+        "name": "Clima",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "5509ca3b03a6e8cf",
+        "type": "ui-page",
+        "name": "Clima",
+        "ui": "f3b20fd514f58146",
+        "path": "/page10",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "f1ee9d1877a3f72b",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c9dd3ee457a93d7e",
+        "type": "ui-group",
+        "name": "Grupo de clima",
+        "page": "5509ca3b03a6e8cf",
         "width": 6,
         "height": 1,
         "order": 1,
@@ -4128,5 +4182,608 @@
         "x": 580,
         "y": 140,
         "wires": []
+    },
+    {
+        "id": "d2d76fb74e18a7a7",
+        "type": "openweathermap",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "wtype": "forecast",
+        "lon": "",
+        "lat": "",
+        "city": "Machala",
+        "country": "Ecuador",
+        "language": "es",
+        "x": 680,
+        "y": 320,
+        "wires": [
+            [
+                "6f8c8e9c7dad6311"
+            ]
+        ]
+    },
+    {
+        "id": "6f8c8e9c7dad6311",
+        "type": "debug",
+        "z": "a4d6879ece10f3a4",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "50a6fe9de0325e71",
+        "type": "inject",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "d2d76fb74e18a7a7"
+            ]
+        ]
+    },
+    {
+        "id": "f4a727916789d395",
+        "type": "inject",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "3df75194a25d9e7b"
+            ]
+        ]
+    },
+    {
+        "id": "3df75194a25d9e7b",
+        "type": "change",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "3654533",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "APPID",
+                "pt": "msg",
+                "to": "cf28d4de4956983663fc30944598ed58",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 420,
+        "wires": [
+            [
+                "d1d806b3e4724c01"
+            ]
+        ]
+    },
+    {
+        "id": "d1d806b3e4724c01",
+        "type": "http request",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://api.openweathermap.org/data/2.5/forecast?id={{{id}}}&APPID={{{APPID}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 890,
+        "y": 420,
+        "wires": [
+            [
+                "3f59249eb54946cf"
+            ]
+        ]
+    },
+    {
+        "id": "a69cd9abea55fa5b",
+        "type": "debug",
+        "z": "a4d6879ece10f3a4",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3f59249eb54946cf",
+        "type": "json",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1070,
+        "y": 420,
+        "wires": [
+            [
+                "a69cd9abea55fa5b"
+            ]
+        ]
+    },
+    {
+        "id": "8021c3e41ffae94a",
+        "type": "inject",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "671d6513fec0152b"
+            ]
+        ]
+    },
+    {
+        "id": "671d6513fec0152b",
+        "type": "http request",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://api.weatherstack.com/current?access_key=146f7cd7c0394919414e7ab45606f584&query=Machala",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 690,
+        "y": 520,
+        "wires": [
+            [
+                "5933cf4100c556a9"
+            ]
+        ]
+    },
+    {
+        "id": "505c193dd5760c73",
+        "type": "debug",
+        "z": "a4d6879ece10f3a4",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5933cf4100c556a9",
+        "type": "json",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 890,
+        "y": 520,
+        "wires": [
+            [
+                "505c193dd5760c73"
+            ]
+        ]
+    },
+    {
+        "id": "317d6194f30fbe16",
+        "type": "comment",
+        "z": "a4d6879ece10f3a4",
+        "name": "RETO",
+        "info": "",
+        "x": 450,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f0d4922ef0304aac",
+        "type": "inject",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 720,
+        "wires": [
+            [
+                "0069cb4e9bb97d6d"
+            ]
+        ]
+    },
+    {
+        "id": "0069cb4e9bb97d6d",
+        "type": "http request",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://api.weatherstack.com/current?access_key=146f7cd7c0394919414e7ab45606f584&query={{{ciudad}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 690,
+        "y": 720,
+        "wires": [
+            [
+                "4ad3a7144eaba912"
+            ]
+        ]
+    },
+    {
+        "id": "24aa412c8ad012c5",
+        "type": "debug",
+        "z": "a4d6879ece10f3a4",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "4ad3a7144eaba912",
+        "type": "json",
+        "z": "a4d6879ece10f3a4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 950,
+        "y": 680,
+        "wires": [
+            [
+                "24aa412c8ad012c5"
+            ]
+        ]
+    },
+    {
+        "id": "158677824d54ddb9",
+        "type": "ui-gauge",
+        "z": "a4d6879ece10f3a4",
+        "name": "Temp",
+        "group": "c9dd3ee457a93d7e",
+        "order": 6,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "ºC",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#00d65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1330,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "239ebdc202c430cd",
+        "type": "ui-gauge",
+        "z": "a4d6879ece10f3a4",
+        "name": "Hum",
+        "group": "c9dd3ee457a93d7e",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "%",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1330,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa8da73ddd827383",
+        "type": "ui-text",
+        "z": "a4d6879ece10f3a4",
+        "group": "c9dd3ee457a93d7e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "dir_viento",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 1340,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "c28ce652c6cb46cd",
+        "type": "ui-led",
+        "z": "a4d6879ece10f3a4",
+        "name": "dia o noche",
+        "group": "c9dd3ee457a93d7e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#000000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#fff700"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 1350,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "ecb73ad3de29e826",
+        "type": "ui-text-input",
+        "z": "a4d6879ece10f3a4",
+        "group": "c9dd3ee457a93d7e",
+        "name": "Cambiar Ciudad",
+        "label": "Ciudad",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "ciudad",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 700,
+        "y": 1020,
+        "wires": [
+            [
+                "0069cb4e9bb97d6d"
+            ]
+        ]
+    },
+    {
+        "id": "84bf1aa5cf64af52",
+        "type": "ui-button",
+        "z": "a4d6879ece10f3a4",
+        "group": "c9dd3ee457a93d7e",
+        "name": "",
+        "label": "Actualizar",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 500,
+        "y": 960,
+        "wires": [
+            [
+                "ecb73ad3de29e826"
+            ]
+        ]
     }
 ]
